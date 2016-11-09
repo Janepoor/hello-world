@@ -1,0 +1,329 @@
+{% include "header.html" %}
+<div class="container container-body">
+
+	<!-- Politician search query result -->
+	<div>
+		{% if (politician_data is defined) and (politician_data | length > 0) %}
+			{% for n in politician_data %}
+				<h2> Information for {{n.name}}</h2>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Date of Birth (Year Month Day): {{ n.dob }}</div>
+		  		<div>Net worth: ${{ n.net_worth }}</div>
+		  		<div>Incumbent: {{ n.incumbent_status }}</div>
+		  		<div>Party Affiliation: {{ n.party_affiliation }}</div>
+		  		<div>Years in Office: {{ n.years_in_office }}</div>
+		  	{% endfor %}
+		{% endif %}
+
+		{% if (politician_data is defined) and (politician_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- Senators search query result -->
+	<div>
+		{% if (senators_data is defined) and (senators_data | length > 0) %}
+			{% for n in senators_data %}
+				<h2> Information for Senator {{n.name}}</h2>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Date of Birth (Year Month Day): {{ n.dob }}</div>
+		  		<div>Net worth: ${{ n.net_worth }}</div>
+		  		<div>Incumbent: {{ n.incumbent_status }}</div>
+		  		<div>Party Affiliation: {{ n.party_affiliation }}</div>
+		  		<div>Years in Office: {{ n.years_in_office }}</div>
+		  	{% endfor %}
+		{% endif %}
+
+		{% if (senators_data is defined) and (senators_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- Represenatative search query result -->
+	<div>
+		{% if (reps_data is defined) and (reps_data | length > 0) %}
+			{% for n in reps_data %}
+				<h2> Information for Representative {{n.name}}</h2>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Date of Birth (Year Month Day): {{ n.dob }}</div>
+		  		<div>Net worth: ${{ n.net_worth }}</div>
+		  		<div>Incumbent: {{ n.incumbent_status }}</div>
+		  		<div>Party Affiliation: {{ n.party_affiliation }}</div>
+		  		<div>Years in Office: {{ n.years_in_office }}</div>
+		  	{% endfor %}
+		{% endif %}
+
+		{% if (reps_data is defined) and (reps_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- Rep state search by state query result -->
+	<div>
+
+		{% if (state_data is defined) and (state_data | length > 0) %}
+			{% for n in state_data %}
+			<h2>State information for: {{ n.state_name }}</h2>
+
+		  		<div>State Name: {{ n.state_name }}</div>
+		  		<div>Population: {{ n.population }}</div>
+		  		<div>Major Ethnicity: {{ n.major_ethnicity }}</div>
+		  		<div>Median Age: {{ n.median_age }}</div>
+		  		<div>Major Party: {{ n.major_party }}</div>
+		  		<div>Median Income: ${{ n.median_income }}</div>
+		  		<div>Poverty Level: {{ n.poverty_level }}%</div>
+		  		<div>Senior Senator: {{ n.sr_senator_name }}</div>
+		  		<div>Junior Senator: {{ n.jr_senator_name }}</div>
+		  	{% endfor %}
+		{% endif %}
+	</div>
+
+	<div>
+		{% if (rep_data is defined) and (rep_data | length == 0) and (state_data is defined) and (state_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- rep dist search by state query result -->
+	<div>
+
+		{% if rep_data is defined %}
+			{% for n in rep_data %}
+			<h2>Information for: {{ n.state_name }} District {{ n.district_number }} </h2>
+
+		  		<div>State Name: {{ n.state_name }}</div>
+		  		<div>District Number: {{ n.district_number }}</div>
+		  		<div>Population: {{ n.population }}</div>
+		  		<div>Major Ethnicity: {{ n.major_ethnicity }}</div>
+		  		<div>Median Age: {{ n.median_age }}</div>
+		  		<div>Major Party: {{ n.major_party }}</div>
+		  		<div>Median Income: ${{ n.median_income }}</div>
+		  		<div>Poverty Level: {{ n.poverty_level }}%</div>
+		  		<div>Representative: {{ n.representative_name }}</div>
+		  	{% endfor %}
+		{% endif %}
+	</div>
+
+	<!-- PAC search by name -->
+	<div>
+		{% if (pac_data is defined) and (pac_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+
+		{% if pac_data is defined %}
+			{% for n in pac_data %}
+			<h2>PAC Information for: {{ n.name}}</h2>
+		  		<div>Committee ID: {{ n.committee_id }}</div>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Budget: ${{ n.budget }}</div>
+		  		<div>Cash Spent: ${{ n.cash_spent }}</div>
+		  		<div>Cash on Hand: ${{ n.cash_on_hand }}</div>
+		  		<div>Registrant: {{ n.registrant }}</div>
+		  	{% endfor %}
+		{% endif %}
+	</div>
+
+	<!-- PAC search by committee id -->
+	<div>
+		{% if (pac_id_data is defined) and (pac_id_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+
+		{% if pac_id_data is defined %}
+			{% for n in pac_id_data %}
+			<h2>PAC Information for: {{ n.name}}</h2>
+		  		<div>Committee ID: {{ n.committee_id }}</div>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Budget: ${{ n.budget }}</div>
+		  		<div>Cash Spent: ${{ n.cash_spent }}</div>
+		  		<div>Cash on Hand: ${{ n.cash_on_hand }}</div>
+		  		<div>Registrant: {{ n.registrant }}</div>
+		  	{% endfor %}
+		{% endif %}
+	</div>
+
+	<!-- Super PAC search by name -->
+	<div>
+		{% if (spac_data is defined) and (spac_data | length > 0) %}
+			{% for n in spac_data %}
+			<h2>Super PAC Information for: {{ n.name }}</h2>
+		  		<div>Committee ID: {{ n.committee_id }}</div>
+		  		<div>Name: {{ n.name }}</div>
+		  		<div>Budget: {{ n.budget }}</div>
+		  		<div>Cash Spent: {{ n.cash_spent }}</div>
+		  		<div>Viewpoint: {{ n.viewpoint }}</div>
+		  	{% endfor %}
+		{% endif %}
+
+		{% if (spac_data is defined) and (spac_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- Legislation search by name -->
+	<div>
+		{% if (legislation_data is defined) and (legislation_data | length > 0) %}
+			{% for n in legislation_data %}
+			<h2>Legislation Information for: {{ n.name }}</h2>
+		  		<div>Legislation Sponsor: {{ n[0] }} </div>
+		  		<div>Sponsor Party Afilliation: {{ n.party_affiliation }} </div>
+		  		<div>Legislation Name: {{ n[1] }} </div>
+		  		<div>Enacted: {{ n.passed }} </div>
+		  		
+		  	{% endfor %}
+		{% endif %}
+		{% if (legislation_data is defined) and (legislation_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- Legislation voting record per politician -->
+	<div>
+		{% if (vote_on_legislation is defined) and (vote_on_legislation | length > 0) %}
+			{% for n in vote_on_legislation %}
+				<h4>{{ n[1] }}'s voting record for {{ n[0] }}</h4>
+				<hr></hr>
+				<div>Name of Legislation: {{ n[0] }}</div>
+				<div>Voting Congressman: {{ n[1] }}</div>
+				<div>Voting Stage: {{ n.voting_stage }}</div>
+				<div>Voted For Legislation: {{ n.voted_for }}</div>			
+				<div>Legislation Enacted: {{ n.passed }}</div>				
+		  	{% endfor %}
+		{% endif %}
+		{% if (vote_on_legislation is defined) and (vote_on_legislation | length == 0) %}
+			<h2>No voting record found.</h2>
+		{% endif %}
+	</div>
+
+	<!-- Legislation search by industry -->
+	<div>
+		{% if (legislation_industry_data is defined) and (legislation_industry_data | length > 0) %}
+			<h2> Legislation supporting {{ legislation_industry_data[0].summary }} Causes</h2>
+
+			{% for n in legislation_industry_data %}
+				<hr></hr>
+				<div>Industry: {{ n.summary }}</div>
+		  		<div>Legislation: {{ n[1] }}</div>
+		  		<div>Legislation Enacted: {{ n.passed }}</div>
+		  		<div>Legislation Sponsor: {{ n[2] }}</div>
+		  		<div>Sponsor Party Afilliation: {{ n.party_affiliation }} </div>
+		  	{% endfor %}
+		{% endif %}
+		{% if (legislation_industry_data is defined) and (legislation_industry_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+	<!-- PAC search by industry -->
+	<div>
+		{% if (pacs_industry_data is defined) and (pacs_industry_data | length > 0) %}
+			<h2> PACs Interested in {{ pacs_industry_data[0].industry_summary }} Causes</h2>
+
+			{% for n in pacs_industry_data %}
+				<hr></hr>
+				<div>Industry: {{ n.industry_summary }}</div>
+		  		<div>PAC Name: {{ n.name }}</div>
+		  		<div>PAC Committee_ID: {{ n.committee_id }}</div>
+		  		<div>PAC budget: ${{ n.budget }}</div>
+		  		<div>PAC Cash on Hand: ${{ n.cash_on_hand }}</div>
+		  		<div>PAC Cash on Spent: ${{ n.cash_spent }}</div>
+		  		<div>Registered to Lobby: {{ n.registrant }}</div>
+		  	{% endfor %}
+		{% endif %}
+
+		<hr>
+
+		{% if (max_spent is defined) and (pacs_industry_data is defined) and (pacs_industry_data | length > 0) %}
+			<h3>Maximum Cash spent by a {{ pacs_industry_data[0].industry_summary }} PAC: ${{ max_spent[0] }}</h3>
+		{% endif %}
+
+		{% if (pacs_industry_data is defined) and (pacs_industry_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+
+	<!-- money data -->
+	<div>
+		{% if (money_data is defined) and (money_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+
+		{% if (money_data is defined) and (money_data | length > 0) %}
+			{% for n in money_data %}
+				<h2>{{n.name}} donated to {{ n.politician_name }}</h2>
+				<div>Politician: {{ n.politician_name }}</div>
+				<div>Organization Name: {{ n.name }}</div>
+				<div>Organization Industry: {{ n.industry_summary }}</div>
+				<div>Amount donated: ${{ n.amount }}</div>
+				<div>Organization Committee ID: {{ n.committee_id }}</div>
+			{% endfor %}
+			<h2>Total Amount of All Donations: $ {{ total_amount }}</h2>
+		{% endif %}
+	</div>
+
+	<!-- vote / industry summary -->
+	<div>
+		{% if vote_i_data is defined %}
+			{% for n in vote_i_data %}
+				<h2> {{ n[3]}}'s Voting Record for {{n[0]}} that Advocates {{n.summary}}</h2>
+				<div>Bill Name: {{ n[0] }}</div>
+				<div>Bill advocates: {{ n.summary }}</div>
+				<div>Bill Enacted Into Law: {{ n.passed }}</div>
+				<div>Politician Name: {{ n[3] }}</div>
+				<div>{{n[3]}} Voted For: {{ n.voted_for }}</div>
+			{% endfor %}
+		{% endif %}
+
+		{% if (vote_i_data is defined) and (vote_i_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+
+	<!-- Super PAC supports -->
+	<div>
+		{% if polit_spac_supports_data is defined %}
+			{% for n in polit_spac_supports_data %}
+				<h2>{{ n[3] }} Super PAC supporting {{ n[2] }}</h2>
+				<div>Name of Super PAC: {{ n[3] }} </div>
+				<div>Super PAC Committee ID: {{ n.committee_id }} </div>
+				<div>Amount used on behalf of {{ n[2] }}: ${{ n.amount }} </div>
+				<div>Super PAC viewpoint: {{ n.viewpoint }} </div>
+			{% endfor %}
+		{% endif %}
+
+		{% if (polit_spac_supports_data is defined) and (polit_spac_supports_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+
+	<!-- Super PAC against -->
+	<div>
+		{% if (polit_spac_against_data is defined) and (polit_spac_against_data | length > 0) %}
+			{% for n in polit_spac_against_data %}
+				<h2>{{ n[3] }} Super PAC against {{ n[2] }}</h2>
+				<div>Name of Super PAC: {{ n[3] }} </div>
+				<div>Super PAC Committee ID: {{ n.committee_id }} </div>
+				<div>Amount used against {{ n[2] }}: ${{ n.amount }} </div>
+				<div>Super PAC viewpoint: {{ n.viewpoint }} </div>
+			{% endfor %}
+		{% endif %}
+
+		{% if (polit_spac_against_data is defined) and (polit_spac_against_data | length == 0) %}
+			<h2>No results</h2>
+		{% endif %}
+	</div>
+
+
+	<hr>
+
+	<div>
+		<p>
+			<a class="btn btn-info" href="/search">Back to Regular Search</a>
+		</p>
+		<p><a href="/money_search" class="btn btn-success">Go to Money and Legislation Searches</a></p>
+	</div>
+
+</div>

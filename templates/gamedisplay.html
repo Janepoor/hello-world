@@ -1,0 +1,17 @@
+<h1> This is game info of {{tname}}</h1>
+    {% for n in gamedata %}
+    <p><a href = "/comment_more?uid={{uid}}&gameid={{n[4]}}">Click here to  comment more about this game</a></p> 
+    <p>Game Number:{{n[4]}}</p>
+    <p>Basketball Team Name:{{n[2]}}</p>
+    <p>Game Place:{{n[0]}}</p>
+    <p>Game Time:{{n[1]}}</p>
+    <p>Score of Team{{tname}}:{{n[3]}}</p>
+    {% endfor %}
+    {%for s in commentdata%}
+    <p>Game Number:{{s[4]}}</p>
+    <p>Your comment to this game:{{s[1]}}</p>
+    <p>Comment time:{{s[0]}}</p>
+    <p>Your rate of the game:{{s[2]}}
+    <p><a href = "/comment_update?commentid={{s[3]}}&uid={{uid}}">Click here to  update your comment about this game</a></p>
+    <p><a href = "/comment_delete?commentid={{s[3]}}&uid={{uid}}">Click here to delete this comment about this game</a></p> 
+    {% endfor %}    

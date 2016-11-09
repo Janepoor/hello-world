@@ -1,0 +1,11 @@
+<h1> This is Player {{playername}}info</h1>
+    {% for n in playerinfo %}
+    <p>name:{{n[0]}}</p>
+    <p>birthdate:{{n[1]}}</p>
+    <p>nationality:{{n[2]}}</p>
+    <p>height: {{n[3]}}cm</p>
+    <p>weight:{{n[4]}}kg</p>
+    <p>shootaccuracy:{{n[5]}}%</p>
+    <p>His position:{{n[6]}}</p>
+    <p>His job:{{n[7]}}</p>
+    {% endfor %}

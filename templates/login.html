@@ -1,0 +1,18 @@
+<html>
+<body>
+{{signal}}
+<form method="POST" action="/validcheck">
+<label for="username">username:</label>
+<input type="text" id="username" name="username" > 
+<label for="password">password:</label>
+<input type="text" id= "password" name = "password">
+<input type="submit" value="login">
+</form>
+ 
+
+    <h2> Legit Users are</h2>
+<div>
+    {% for n in data %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>

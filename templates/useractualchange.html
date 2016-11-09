@@ -1,0 +1,32 @@
+{{message}}
+
+<h1> This is your account info  {{uname}}</h1>
+    {% for n in data %}
+    <p>username:{{n[0]}}</p>
+    <p>password:{{n[1]}}</p>
+    <p>gender: {{n[2]}}</p>
+    <p>emailaddress:{{n[3]}}</p>
+    <p>age:{{n[4]}}</p>
+    {% endfor %}
+
+<h1> please input new account infomation. Please note that we have specific requirements for each attribute.</h1>
+ <form method="POST" action="/useractualchange">
+      <label for="uname">Input new username:</label>
+      <input type="text" id="uname" name="uname"> <br>
+
+      <label for="password">Input new password:</label>
+      <input type="text" id= "password" name = "password" ><br>
+
+    <h3> for gender, please only input M or m or F or f, thank you.
+      <label for="gender">Input new gender:</label>
+      <input type="text" id="gender" name = "gender"><br>
+    
+      <label for="emailaddress">Input new emailaddress:</label>
+      <input type="text" id="emailaddress" name = "emailaddress""><br>
+
+    <h3> for age, please only input one positive numbder, thank you.
+      <label for="age">Input new age:</label>
+      <input type="text" id="age" name = "age"><br>
+      <input type="hidden" id="uid", name="uid" value="{{uid}}">
+      <input type="submit" value="submit">
+</form>

@@ -1,0 +1,14 @@
+{{message}}
+<h1> please update your comment. </h1>
+<h1>Please note that we have specific requirements for each attribute.</h1>
+ <form method="POST" action="/update_comment_check">
+      <label for="content">Input new content:</label>
+      <input type="text" id="content" name="content"> <br>
+
+      <label for="rate">Input rate for the game: a integer from 1 to 10 </label>
+      <input type="text" id= "rate" name = "rate" ><br>
+
+      <input type="hidden" id="uid", name="uid" value="{{uid}}">
+      <input type="hidden" id="commentid", name="commentid" value="{{commentid}}">
+      <input type="submit" value="submit">
+</form>

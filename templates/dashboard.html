@@ -1,0 +1,17 @@
+<!--<h1>alL teams you can see</h1>
+    <div>{{data}}</div>
+
+    <div>
+      {% for n in data %}
+      <div>{{n}}</div>
+      {% endfor %}
+    </div> -->
+
+<h1> Welcome to your dashboard  {{uname}}</h1>
+<h4>{{message}}</h4>
+<p><a href = "/user_change_details?uid={{uid}}&uname={{uname}}">Click here to modify your account details</a></p> 
+<p><a href = "/user_search_history?uid={{uid}}&uname={{uname}}">Click here to view your search history for basketball teams</a></p>
+<p><a href = "/user_search_basketball_team?uid={{uid}}&uname={{uname}}">Click here to search for a basketball team</a></p> 
+<p><a href = "/user_view_recommendations?uid={{uid}}&uname={{uname}}">Click here to view our recommendations for you</a></p> 
+<p><a href = "/">Click here to log out</a></p> 
+
